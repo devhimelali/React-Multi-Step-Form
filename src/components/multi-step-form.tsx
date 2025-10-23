@@ -45,9 +45,16 @@ const MultiStepForm = () => {
     const onNext = async (data: StepFormData) => {
         const isValid = await trigger();
         if (!isValid) return;
-        updateFormData(data);
+        console.log("Current Step Data:", data);
+        console.log("Form Data:", formData);
+        const updateData = { ...formData, ...data };
+        updateFormData(updateData);
         if (isLastStep) {
-            submitForm();
+            try {
+                submitForm(updateData);
+            } catch (error) {
+                console.error("Error submitting form:", error);
+            }
         } else {
             goToNextStep();
         }
