@@ -59,9 +59,9 @@ const MultiStepForm = () => {
                 <ProgressSteps currentStep={currentStep} steps={steps} />
             </CardHeader>
             <CardContent className="space-y-6">
-                {currentStep === 0 && <PersonalInfoStep />}
-                {currentStep === 1 && <ProfessionalInfoStep />}
-                {currentStep === 2 && <BillingInfoStep />}
+                {currentStep === 0 && <PersonalInfoStep register={register} errors={errors} />}
+                {currentStep === 1 && <ProfessionalInfoStep register={register} errors={errors} setValue={setValue} />}
+                {currentStep === 2 && <BillingInfoStep register={register} errors={errors} />}
                 <div className="flex justify-between pt-4">
                     <Button type="button" variant="outline" onClick={goToPreviousStep} disabled={isFirstStep}>
                         <ChevronLeft className="h-4 w-4 mr-1" />

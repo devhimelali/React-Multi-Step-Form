@@ -29,9 +29,9 @@ const FormField = ({
                 maxLength={maxLength}
                 {...register(id)}
             />
-            {error && error[id] && (
+            {error && error.id && (
                 <p className="text-sm text-destructive mt-1">
-                    {error[id]?.message}
+                    {error.id.message}
                 </p>
             )}
         </div>
